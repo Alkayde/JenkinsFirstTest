@@ -1,13 +1,10 @@
 node {
 	stage ('SCM checkout'){
-		git "https://gitlab.com/mbabilo/experitest"
+		git "https://github.com/Alkayde/JenkinsFirstTest.git"
 		}
 	stage ('Build'){
-    	dir("comtest") {
-	   sh "mvn clean install"
-       }
-       	dir("comtest/target") {
-	   sh "java -jar com.test-1.0-SNAPSHOT.jar"
+       	dir("out/artifacts/JenkinsFirstTest_jar") {
+	   sh "java -jar JenkinsFirstTest.jar"
        }
 		}
 }
